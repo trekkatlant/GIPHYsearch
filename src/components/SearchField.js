@@ -14,17 +14,20 @@ class SearchField extends Component {
             giphyCode: event.target.value
         })
     };
-    fetchGiphyData= () => {
+    fetchGiphyData= (event) => {
+        event.preventDefault();
         this.props.val(this.state.giphyCode)
     };
-    handlEvent = (event) => {
-        if(event = "Enter")
-            this.fetchGiphyData();
+    handlEnter = (event) => {
+        if(event.key === "Enter") {
+            event.preventDefault();
+            this.fetchGiphyData(event);
+        }        
     };
     render() {
         return(
             <div>
-                <input onChange={this.handleGiphyChange}/>
+                <input onChange={this.handleGiphyChange} onKeyDown={this.handlEnter}/>
                 <button onClick={this.fetchGiphyData}>search</button>
             </div>
         )
