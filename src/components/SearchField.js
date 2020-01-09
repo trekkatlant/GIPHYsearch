@@ -14,14 +14,18 @@ class SearchField extends Component {
             giphyCode: event.target.value
         })
     };
-    fetchGiphyData() {
+    fetchGiphyData= () => {
         this.props.val(this.state.giphyCode)
+    };
+    handlEvent = (event) => {
+        if(event = "Enter")
+            this.fetchGiphyData();
     };
     render() {
         return(
             <div>
                 <input onChange={this.handleGiphyChange}/>
-                <button onClick={this.fetchGiphyData}/>
+                <button onClick={this.fetchGiphyData}>search</button>
             </div>
         )
     }
