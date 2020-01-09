@@ -1,6 +1,4 @@
 import React, {Component} from "react";
-// import axios from "axios";
-// import GiphyCard from "./GiphyCard";
 
 class SearchField extends Component {
     constructor(props) {
@@ -32,6 +30,5 @@ class SearchField extends Component {
             </div>
         )
     }
-}
-
+};
 export default SearchField;
