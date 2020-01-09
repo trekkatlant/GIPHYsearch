@@ -1,15 +1,15 @@
-import React from "react";
+import React, {Component} from "react";
 import axios from "axios";
 import GiphyCard from "./GiphyCard";
 
-export default class SearchField extends React.Component {
+class SearchField extends Component {
     constructor(props) {
         super(props);
         this.state = {
             giphyCode: ""
         }
     };
-    handleGiphyChange = () => {
+    handleGiphyChange = (event) => {
         this.setState({
             giphyCode: event.target.value
         })
@@ -26,3 +26,5 @@ export default class SearchField extends React.Component {
         )
     }
 }
+
+export default SearchField;
