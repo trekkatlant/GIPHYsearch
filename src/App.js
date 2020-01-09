@@ -31,7 +31,7 @@ class App extends Component {
       return response.json();
     })
     .then(function(json) {
-      if(json.meta.status == 200) {
+      if(json.meta.status === 200) {
         app.setState({
           cardData: json.data
         });

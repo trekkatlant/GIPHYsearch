@@ -1,6 +1,6 @@
 import React, {Component} from "react";
-import axios from "axios";
-import GiphyCard from "./GiphyCard";
+// import axios from "axios";
+// import GiphyCard from "./GiphyCard";
 
 class SearchField extends Component {
     constructor(props) {
