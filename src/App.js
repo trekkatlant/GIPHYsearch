@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
-import logo from './logo.svg';
 import './App.css';
+import GiphyCard from './components/GiphyCard.js';
+import SearchField from './components/SearchField.js';
+import Pagination from './components/Pagination.js';
 
 class App extends Component {
   constructor(props) {
@@ -12,15 +14,15 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <h1>Title</h1>
+        <h1>Search with GIPHY</h1>
         <SearchField></SearchField>
         <div>
-          {this.state.cardData.map((element, index) => {
+          {this.state.cardData.map((element, index) => (
             <GiphyCard />
-          })}
+          ))}
         </div>
+        <Pagination />
       </div>
-      <Pagination />
     );
   }
 }
