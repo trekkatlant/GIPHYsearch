@@ -10,7 +10,7 @@ class App extends Component {
     super(props);
     this.state = {
       giphyCode: "",
-      cardData: []
+      cardData: [],
     };
   }
 
@@ -40,26 +40,29 @@ class App extends Component {
 
   async handleSearch(searchTerm) {
     //Making sure the inputs are correct to request data from the API. 
-    let url = "http://api.giphy.com/v1/gifs/trending?api_key=";
+    let url = "http://api.giphy.com/v1/gifs/trending?api_key="; //Default: Trending gifs
     let apiKey = "7KV6EGFTs7XsTj07TKCtBk580Vyv2SFT";
     let apiUrl = ""
     if(searchTerm === "") {
       apiUrl = url + apiKey;
     } else {
-      apiUrl = "http://api.giphy.com/v1/gifs/search?q="+searchTerm+"&api_key="+apiKey;
+      apiUrl = "http://api.giphy.com/v1/gifs/search?q="+searchTerm+"&api_key="+apiKey+"&limit=40"; //limit set to 40
     }
     
     //Using Axios to parse data and catch errors.
     axios.get(apiUrl)
     .then(response => {
       this.setState({
-        cardData: response.data.data
+        cardData: response.data.data //Gets GIF objects of all the gifs that the GIPHY API sent back. 
       })
     })
     .catch(err => console.log(err));
   }
 
-
+  /*
+    * The cardData is passed into GiphyCard to eventually be mapped into <img> elements.
+    * GiphyCard holds all the gifs that will be displayed. 
+  */
   render() {
     return <div className="App">
         <div className="Content">

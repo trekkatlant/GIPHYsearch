@@ -1,5 +1,31 @@
 //How to make responsive rows/columns from the inputted data?
 img {
 	height: 200px;
-	width: auto;
+	width: 200px;
+}
+
+.container {
+  position: relative;
+  display: inline-block;
+}
+
+.container:hover .overlay {
+  opacity: 1;
+}
+
+.overlay {
+  font-family: helvetica;
+  font-size: 6px;
+  color: black;
+  text-shadow: 1px 1px yellow;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  opacity: 0;
+  transition: .5s ease;
+  background-color: rgba(3, 252, 136, 0.8);
 }
