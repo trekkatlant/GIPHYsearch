@@ -12,7 +12,8 @@ class App extends Component {
     this.state = {
       giphyCode: "",
       cardData: [],
-      sort: ""
+      cardDataCopy: [],
+      sort: "Trending"
     };
   }
 
@@ -40,6 +41,63 @@ class App extends Component {
     })
   };
 
+  handleSorting = (event) => {
+
+    let val = event.target.value;
+    if(val === "Reddit") {
+      this.setState({
+        sort: "Reddit"
+      });
+      var cardDataTwo = [];
+      //console.log(this.state.cardData[0].source_tld);
+      for(var i = 0; i < this.state.cardDataCopy.length; i++) {
+        console.log(this.state.sort.toLowerCase());
+        if(this.state.cardDataCopy[i].source_tld.includes("www.reddit")) {
+          cardDataTwo.push(this.state.cardDataCopy[i]);
+        }
+      }
+      if(cardDataTwo !== undefined) {
+        this.setState({
+          cardData: cardDataTwo
+        });
+      } else {
+        this.setState({
+          cardData: []
+        })
+      }
+    }
+    else if(val === "Tumblr") {
+      this.setState({
+        sort: "Tumblr"
+      })
+      var cardDataTwo = [];
+      for(var i = 0; i < this.state.cardDataCopy.length; i++) {
+        console.log(this.state.sort.toLowerCase());
+        if(this.state.cardDataCopy[i].source_tld.includes("www.tumblr")) {
+          cardDataTwo.push(this.state.cardDataCopy[i]);
+        }
+      }
+      if(cardDataTwo !== undefined) {
+        this.setState({
+          cardData: cardDataTwo
+        });
+      } else {
+        this.setState({
+          cardData: []
+        })
+      }
+    }
+    else {
+      this.setState({
+        sort: "Trending"
+      });
+      var cardDataTwo = [];
+      this.setState({
+        cardData: this.state.cardDataCopy
+      });
+    }
+  };
+
   async handleSearch(searchTerm) {
     //Making sure the inputs are correct to request data from the API. 
     let url = "http://api.giphy.com/v1/gifs/trending?api_key="; //Default: Trending gifs
@@ -55,7 +113,8 @@ class App extends Component {
     axios.get(apiUrl)
     .then(response => {
       this.setState({
-        cardData: response.data.data //Gets GIF objects of all the gifs that the GIPHY API sent back. 
+        cardData: response.data.data, //Gets GIF objects of all the gifs that the GIPHY API sent back. 
+        cardDataCopy: response.data.data
       })
     })
     .catch(err => console.log(err));
@@ -79,8 +138,8 @@ class App extends Component {
             </i>
           </div>
           <SearchField val={this.handleUpdateData}/>
-
-          <Filter />
+          <h2>Filter By: {this.state.sort}...</h2>
+          <Filter action={this.handleSorting} />
 
           <GiphyCard val={this.state.cardData}/>
         </div>
