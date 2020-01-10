@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import GiphyCard from './components/GiphyCard.js';
 import SearchField from './components/SearchField.js';
+import Filter from './components/Filter.js';
 import Pagination from './components/Pagination.js';
 import axios from "axios"
 import './App.css';
@@ -11,6 +12,7 @@ class App extends Component {
     this.state = {
       giphyCode: "",
       cardData: [],
+      sort: ""
     };
   }
 
@@ -76,8 +78,10 @@ class App extends Component {
             <p>Or, just take a look at the trending gifs.</p>
             </i>
           </div>
-
           <SearchField val={this.handleUpdateData}/>
+
+          <Filter />
+
           <GiphyCard val={this.state.cardData}/>
         </div>
         <Pagination />
