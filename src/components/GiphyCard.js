@@ -1,5 +1,10 @@
 import React, {Component} from "react";
+import './styles/GiphyCardStyles.css';
 
+/*
+    * GiphyCard returns a single giphy object frome each object taken in. 
+    * SingleGiphy returns an <img> element that data.
+*/
 class SingleGiphy extends Component {
     render() {
         return(
