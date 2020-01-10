@@ -22,10 +22,20 @@ class GiphyCard extends Component {
         return <div> {
             this.props.val.map(obj => {
                 //console.log(obj.source_tld);
+
+                //Determine what the overlay text will be by using the GIF object property provided by the GIPHY API.
                 let overlayText = obj.source_tld;
                 if(obj.source_tld === "") {
-                    overlayText = "Not listed";
+                    overlayText = "Not listed"; //Don't just display a blank space if no source was provided
                 }
+
+                else {
+                    if(!overlayText.includes("www.")) { //Standardize formatting
+                        let newText = "www.".concat(overlayText);
+                        overlayText = newText;
+                    }
+                }
+
                 return(
                     <div className="container">
                         <SingleGiphy val={obj} sourceURL={obj.source_tld} dataPublished={obj.create_datetime} />

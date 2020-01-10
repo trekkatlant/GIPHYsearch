@@ -16,5 +16,14 @@ input {
 }
 
 .searchBar {
-	margin-bottom: 50px;
+	margin-bottom: 15px;
+}
+
+h2 {
+	text-align: center;
+	color: rgba(3, 252, 136, 0.8);
+	text-shadow: 1px 1px black;
+	font-family: arial;
+	margin-left: 8px;
+	font-size: 18px;
 }

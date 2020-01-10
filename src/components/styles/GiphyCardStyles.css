@@ -21,6 +21,7 @@ img {
   position: absolute;
   height: 100%;
   width: 100%;
+  word-wrap: break-word; /*for really long urls*/
   top: 0;
   bottom: 0;
   left: 0;

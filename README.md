@@ -66,3 +66,7 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `npm run build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+## GIPHY Search Web App
+Collaborators: Max Zlotskiy, Eva Yan, Bobur Hurramov\
+Date: January 2020\

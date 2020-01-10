@@ -13,7 +13,8 @@ class SearchField extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            giphyCode: ""
+            giphyCode: "",
+            searched: "Showing: Trending..."
         }
     };
     handleGiphyChange = (event) => {
@@ -33,10 +34,14 @@ class SearchField extends Component {
     };
     render() {
         return(
-            <div className="searchBar">
-                <input placeholder="Enter keyword..." onChange={this.handleGiphyChange} onKeyDown={this.handleEnter}/>
-                <button onClick={this.fetchGiphyData}>search</button>
+            <div>
+                <div className="searchBar">
+                    <input placeholder="Enter keyword..." onChange={this.handleGiphyChange} onKeyDown={this.handleEnter}/>
+                    <button onClick={this.fetchGiphyData}>search</button>
+                </div>
+                <h2>{this.state.searched}</h2>
             </div>
+
         )
     }
 };
