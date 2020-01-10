@@ -18,6 +18,12 @@ class SingleGiphy extends Component {
 }
 
 class GiphyCard extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            
+        }
+    }
     render() {
         return <div> {
             this.props.val.map(obj => {
