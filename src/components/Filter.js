@@ -1,6 +1,9 @@
 import React, {Component} from "react";
 import './styles/FilterStyles.css';
 
+/*
+	Calls the parent method handleSorting to update the parent component state.
+*/
 class Filter extends Component {
 	constructor(props) {
 		super(props);
@@ -10,22 +13,16 @@ class Filter extends Component {
 
 	}
 
-	updateSortingBy = (event) => {
-		this.setState({
-			currentSortingBy: event.target.value
-		})
-		//console.log(this.state.currentSortingBy);
-	};
-
 	render() {
 		return (
 			<div>
-				<select onChange={this.updateSortingBy}>
+				<select onChange={this.props.action}> 
 					<option id="trending">Trending</option>
 					<option id="reddit">Reddit</option>
 					<option id="tumblr">Tumblr</option>
 				</select>
 			</div>
+
 		);
 	}
 }

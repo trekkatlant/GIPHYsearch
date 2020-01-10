@@ -12,7 +12,7 @@ class App extends Component {
     this.state = {
       giphyCode: "",
       cardData: [],
-      sort: ""
+      sort: "Trending"
     };
   }
 
@@ -39,6 +39,25 @@ class App extends Component {
       giphyCode: val
     })
   };
+
+  handleSorting = (event) => {
+    let val = event.target.value;
+    if(val === "Reddit") {
+      this.setState({
+        sort: "Reddit"
+      });
+    }
+    else if(val === "Tumblr") {
+      this.setState({
+        sort: "Tumblr"
+      })
+    }
+    else {
+      this.setState({
+        sort: "Trending"
+      });
+    }
+  }
 
   async handleSearch(searchTerm) {
     //Making sure the inputs are correct to request data from the API. 
@@ -79,8 +98,8 @@ class App extends Component {
             </i>
           </div>
           <SearchField val={this.handleUpdateData}/>
-
-          <Filter />
+          <h2>Sort By: {this.state.sort}...</h2>
+          <Filter action={this.handleSorting}/>
 
           <GiphyCard val={this.state.cardData}/>
         </div>

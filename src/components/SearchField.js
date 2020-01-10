@@ -14,7 +14,6 @@ class SearchField extends Component {
         super(props);
         this.state = {
             giphyCode: "",
-            searched: "Showing: Trending..."
         }
     };
     handleGiphyChange = (event) => {
@@ -39,7 +38,6 @@ class SearchField extends Component {
                     <input placeholder="Enter keyword..." onChange={this.handleGiphyChange} onKeyDown={this.handleEnter}/>
                     <button onClick={this.fetchGiphyData}>search</button>
                 </div>
-                <h2>{this.state.searched}</h2>
             </div>
 
         )
